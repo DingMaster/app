@@ -12,9 +12,11 @@
 				"push_key": ""
 			},
 			"ad": {
-				"can_open": 1,
+				"ad_time":3,
+				"ad_bug_version":"1.0.0",
+				"can_open": 0,
 				"app_open_url": "https:\/\/www.baidu.com",
-				"ad_url": "https:\/\/baodownload.wallstreetcn.com\/testpic.png"
+				"ad_url": ""
 			},
 			"app": {
 				"appurl": "https:\/\/www.taobao.com",
