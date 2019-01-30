@@ -1,22 +1,31 @@
 {
 	"state": "OK",
 	"msg": "",
-    "obj": {
+	"obj": {
 		"link": {
 			"link": "",
-			"can_link": 1,
+			"can_link": 1
 		},
-		"config": ["ad":{
-			"can_open": 1,
-			"ad_url": "https://baodownload.wallstreetcn.com/testpic.png",
-			"app_open_url": "https://www.baidu.com"
-		}, "push":{
-			"canpush": 0,
-			"push_key": "",
-		}, "app":{
-			"app_url_open": 1,
-			"app_url": "https://www.taobao.com",
-		}],
-		
+		"config": [{
+				"ad": {
+					"can_open": 1,
+					"ad_url": "https://baodownload.wallstreetcn.com/testpic.png",
+					"app_open_url": "https://www.baidu.com"
+				}
+			},
+			{
+				"push": {
+					"can_push": 0,
+					"push_key": ""
+				}
+			},
+			{
+				"app": {
+					"appurl_open": 1,
+					"appurl": "https://www.taobao.com"
+				}
+			}
+		]
+
 	}
 }
