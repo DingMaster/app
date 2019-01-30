@@ -6,7 +6,7 @@
 			"link": "",
 			"can_link": 1
 		},
-		"config": [{
+		"config": {
 				"ad": {
 					"can_open": 1,
 					"ad_url": "https://baodownload.wallstreetcn.com/testpic.png",
@@ -25,7 +25,7 @@
 					"appurl": "https://www.taobao.com"
 				}
 			}
-		]
+		
 
 	}
 }
