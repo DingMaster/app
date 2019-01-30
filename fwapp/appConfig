@@ -1,11 +1,22 @@
 {
-	"msg": "",
 	"state": "OK",
-	"obj": {
-		"link": "",
-		"can_link": 0,
-		"config": {"ad_url":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548834584077&di=6fcb395175712f25c6d3315c8fc15495&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D3144330714%2C1312455734%26fm%3D214%26gp%3D0.jpg"
-"app_open_url":"https://www.baidu.com",
-"app_url":"https://www.taobao.com"},
+	"msg": "",
+    "obj": {
+		"link": {
+			"link": "",
+			"can_link": 1,
+		},
+		"config": ["ad":{
+			"can_open": 1,
+			"ad_url": "https://baodownload.wallstreetcn.com/testpic.png",
+			"app_open_url": "https://www.baidu.com"
+		}, "push":{
+			"canpush": 0,
+			"push_key": "",
+		}, "app":{
+			"app_url_open": 1,
+			"app_url": "https://www.taobao.com",
+		}],
+		
 	}
 }
