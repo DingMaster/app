@@ -7,25 +7,19 @@
 			"can_link": 1
 		},
 		"config": {
-				"ad": {
-					"can_open": 1,
-					"ad_url": "https://baodownload.wallstreetcn.com/testpic.png",
-					"app_open_url": "https://www.baidu.com"
-				}
+			"push": {
+				"can_push": 0,
+				"push_key": ""
 			},
-			{
-				"push": {
-					"can_push": 0,
-					"push_key": ""
-				}
+			"ad": {
+				"can_open": 1,
+				"app_open_url": "https:\/\/www.baidu.com",
+				"ad_url": "https:\/\/baodownload.wallstreetcn.com\/testpic.png"
 			},
-			{
-				"app": {
-					"appurl_open": 1,
-					"appurl": "https://www.taobao.com"
-				}
+			"app": {
+				"appurl": "https:\/\/www.taobao.com",
+				"appurl_open": 1
 			}
-		
-
+		}
 	}
 }
