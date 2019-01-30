@@ -4,7 +4,7 @@
 	"obj": {
 		"link": {
 			"link": "",
-			"can_link": 1
+			"can_link": 0
 		},
 		"config": {
 			"push": {
