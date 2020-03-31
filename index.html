@@ -18,7 +18,7 @@
     <h1 class="mui-title" style="color:#fff">为您精选的应用<p style="float: right;" class="zb">观看直播</p></h1> 
 </header>
 
-<div style="width:92%;height: 100px;background: #38394d;margin:0 auto;margin-top:80px;border-radius:5px;color:#fff" href='xz123.html'>
+<div style="width:92%;height: 100px;background: #38394d;margin:0 auto;margin-top:80px;border-radius:5px;color:#fff" class='xz123'>
 	<img src="https://appicon.pgyer.com/image/view/app_icons/ecf0c620657966adafc75faf924c1d71/120" style="height: 60px;margin: 20px 0 0 5px;float: left;">
 	<div style="width: 140px;height:60px;float: left;margin-top:30px;margin-left:10px;">
 		星座人生<br>
@@ -38,8 +38,10 @@
 	<script>
 			
 		$(".zb").click(function(event) {
-		   
 		   window.open("http://m.v.6.cn/?referrer=");
+		});
+		$(".xz123").click(function(event) {
+		   window.open("xz123.html");
 		});
 		//关闭
 		  mui.init();
