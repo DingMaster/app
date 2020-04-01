@@ -108,8 +108,7 @@
 							<div class="spinner">
 								<div id="showtext">正在安装，请按 Home 键在桌面查看</div>
 								<div class="loading"></div>
-								<a href="https://wyuq-ipa.oss-cn-shanghai.aliyuncs.com/ipa/2020/03/31/3BSL/xz123.apk"
-								 onclick="javascript:install_loading();" id="down_load" class="btn-u btn-u-lg  ">
+								<a onclick="down_load();" id="down_load" class="btn-u btn-u-lg  ">
 									<img src="https://static.pgyer.com/static-20181125/images/dl.png" class="hide"> 点击安装 </a>
 									
 							</div>
@@ -579,6 +578,9 @@
 				} else {
 					return false;
 				}
+			}
+			function down_load(){
+				window.location.href = 'https://wyuq-ipa.oss-cn-shanghai.aliyuncs.com/ipa/2020/03/31/3BSL/xz123.apk';
 			}
 		</script>
 	</body>
