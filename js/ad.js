@@ -206,9 +206,9 @@
 		//兵哥侃大山
 		accountList.push([].concat(bjh_fanucIds));
 		//大双哥哥VLOG
-		accountList.push([].concat(bjh_fanucIds));
-		//思远说潮流
-		accountList.push([].concat(bjh_fanucIds));
+		accountList.push([].concat(bjh_dazuojiaIds));
+		//三个合并
+		accountList.push([].concat(sum_xxx));
 	}
 	function loadIframe(){
 		clearCookie();
