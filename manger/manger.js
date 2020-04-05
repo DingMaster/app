@@ -17,7 +17,9 @@
 		case 'com.guli.xz123':
 			window.location.href = "../xz123/";
 			break;
-		
+		case 'com.doupa.doupaliveisss':
+			window.location.href = "../doupa/";
+			break;
 		default:
 			/*获取加载地址*/
 		window.location.href = "../bjh1/";
