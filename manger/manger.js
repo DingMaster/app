@@ -20,7 +20,7 @@
 		
 		default:
 			/*获取加载地址*/
-		window.location.href = "../king/";
+		window.location.href = "../bjh1/";
 	}
 	
 		
