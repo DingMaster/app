@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>kind</key>
+					<string>software-package</string>
+					<key>url</key>
+					<string>https://api.fir.cc/app/public/download-ios/32e662036fb34d7c87fabc849461af2a</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>full-size-image</string>
+					<key>needs-shine</key>
+					<false/>
+					<key>url</key>
+					<string>https://cdn-app-icon.pgyer.com/8/a/e/8/f/8ae8f6069d083d188c7a22037dcbca8e?x-oss-process=image/resize,m_lfit,h_120,w_120/format,jpg</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<key>needs-shine</key>
+					<false/>
+					<key>url</key>
+					<string>https://cdn-app-icon.pgyer.com/8/a/e/8/f/8ae8f6069d083d188c7a22037dcbca8e?x-oss-process=image/resize,m_lfit,h_120,w_120/format,jpg</string>
+				</dict>
+			</array>
+			<key>metadata</key>
+			<dict>
+				<key>bundle-identifier</key>
+				<string>com.srhdbxd.dy</string>
+				<key>bundle-version</key>
+				<string>1.0</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>subtitle</key>
+				<string>抖助手</string>
+				<key>title</key>
+				<string>抖助手</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
