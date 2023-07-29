@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>assets</key>
+                <array>
+                    <dict>
+                        <key>kind</key>
+                        <string>software-package</string>
+                        <key>url</key>
+                        <string><![CDATA[https://s3-cn-south-1.qiniucs.com/abc8187/%E4%B8%B4%E6%97%B6%E9%93%BE%E6%8E%A5/%E7%88%B1%E5%A5%87%E8%89%BAHD%2011.9.5.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=uaCoVIncaQKrfmc1-cXZVV-BV_tlHM_iLwiAyp0n%2F20230729%2F%E5%8D%8E%E5%8D%97-%E5%B9%BF%E4%B8%9C%2Fs3%2Faws4_request&X-Amz-Date=20230729T061814Z&X-Amz-Expires=14400&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3Bfilename%3D%22%25E7%2588%25B1%25E5%25A5%2587%25E8%2589%25BAHD%2B11.9.5.ipa%22&X-Amz-Signature=99c3298463f85c8e4c7744cbd437add012063abf7e12a4352e485ff64b2fb48f]]></string>
+                    </dict>
+                </array>
+                <key>metadata</key>
+                <dict>
+                    <key>bundle-identifier</key>
+					<string>ci.nn.%E7%88%B1%E5%A5%87%E8%89%BAHD%2011.9.5</string>
+					<key>bundle-version</key>
+                    <string>4.4</string>
+                    <key>kind</key>
+                    <string>software</string>
+                    <key>title</key>
+                    <string>爱奇艺HD 11.9.5</string>
+                </dict>
+            </dict>
+        </array>
+    </dict>
+</plist>
