@@ -1,30 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>items</key>
-        <array>
-            <dict>
-                <key>assets</key>
-                <array>
-                    <dict>
-                        <key>kind</key>
-                        <string>software-package</string>
-                        <key>url</key>
-                        <string><![CDATA[https://s3-cn-south-1.qiniucs.com/abc8187/%E4%B8%B4%E6%97%B6%E9%93%BE%E6%8E%A5/WeChat%206.7.3.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=uaCoVIncaQKrfmc1-cXZVV-BV_tlHM_iLwiAyp0n%2F20230805%2F%E5%8D%8E%E5%8D%97-%E5%B9%BF%E4%B8%9C%2Fs3%2Faws4_request&amp;X-Amz-Date=20230805T155838Z&amp;X-Amz-Expires=14400&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=attachment%3Bfilename%3D%22WeChat%2B6.7.3.ipa%22&amp;X-Amz-Signature=a0611d87c779be31ff6011e41cce852aa718277491b823e2bd01f398ccb3cefd]]></string> 
-                    </dict>
-                </array>
-                <key>metadata</key>
-                <dict>
-                    <key>bundle-identifier</key>
-					<string>ci.nn.%E7%88%B1%E5%A5%87%E8%89%BAHD%2011.9.5</string>
-					<key>bundle-version</key>
-                    <string>4.4</string>
-                    <key>kind</key>
-                    <string>software</string>
-                    <key>title</key>
-                    <string>爱奇艺HD 11.9.5</string>
-                </dict>
-            </dict>
-        </array>
-    </dict>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"> 
+	<dict> 
+		<key>items</key> 
+		<array> 
+			<dict> 
+				<key>assets</key> 
+				<array> 
+					<dict> 
+						<key>kind</key> 
+						<string>software-package</string> 
+						<key>url</key> 
+						<string>
+							<![CDATA[https://s3-cn-south-1.qiniucs.com/abc8187/%E4%B8%B4%E6%97%B6%E9%93%BE%E6%8E%A5/WeChat%206.7.3.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=uaCoVIncaQKrfmc1-cXZVV-BV_tlHM_iLwiAyp0n%2F20230805%2F%E5%8D%8E%E5%8D%97-%E5%B9%BF%E4%B8%9C%2Fs3%2Faws4_request&amp;X-Amz-Date=20230805T160554Z&amp;X-Amz-Expires=14400&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=attachment%3Bfilename%3D%22WeChat%2B6.7.3.ipa%22&amp;X-Amz-Signature=53c637c984bb290c080c925bc4fb449d0ed4383c7fcdda704e36e76bf560a093]]>
+						</string> 
+					</dict> 
+				</array> 
+				<key>metadata</key> 
+				<dict> 
+					<key>bundle-identifier</key> 
+					<string>ci.nn.WeChat%206.7.3</string> 
+					<key>bundle-version</key> 
+					<string>4.4</string> 
+					<key>kind</key> 
+					<string>software</string> 
+					<key>title</key> 
+					<string>WeChat 6.7.3</string> 
+				</dict> 
+			</dict> 
+		</array> 
+	</dict> 
 </plist>
